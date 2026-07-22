@@ -82,14 +82,15 @@
 }
 
 .dash-header-actions button {
-    width: 36px;
     height: 36px;
+    padding: 0 0.85rem;
     border-radius: 10px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    color: var(--dash-text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--dash-text);
     border: 1px solid var(--dash-border);
     background: white;
     cursor: pointer;
@@ -99,7 +100,7 @@
 .dash-header-actions button:hover {
     color: var(--dash-accent);
     border-color: var(--dash-accent);
-    background: var(--dash-accent-light);
+    background: var(--dash-bg);
 }
 
 /* ─── Dashboard Content ───────────────────────────────────── */

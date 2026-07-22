@@ -506,12 +506,8 @@ export default function Dashboard({ onNavigate }) {
                     <span className="shop-name">{currentShop?.name}</span>
                 </div>
                 <div className="dash-header-actions">
-                    <button
-                        className="pill active"
-                        onClick={() => onNavigate('storefront', currentShop?.slug)}
-                        style={{ fontSize: '0.85rem', padding: '0.4rem 0.85rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
-                    >
-                        <i className="ph ph-storefront"></i> View my Store
+                    <button onClick={() => onNavigate('storefront', currentShop?.slug)}>
+                        View my Store
                     </button>
                 </div>
             </header>
@@ -957,36 +953,35 @@ export default function Dashboard({ onNavigate }) {
             {/* WhatsApp Share Modal */}
             {shareModalProduct && (
                 <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}>
-                    <div className="auth-card" style={{ maxWidth: '440px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                            <h2 style={{ fontSize: '1.1rem', fontWeight: 700 }}>Share to WhatsApp</h2>
-                            <button onClick={() => setShareModalProduct(null)} style={{ border: 'none', background: 'none', cursor: 'pointer', fontSize: '1.2rem' }}>&times;</button>
+                    <div className="auth-card" style={{ maxWidth: '400px', width: '100%', padding: '1.25rem' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                            <h2 style={{ fontSize: '1.05rem', fontWeight: 700 }}>Share to WhatsApp</h2>
+                            <button onClick={() => setShareModalProduct(null)} style={{ border: 'none', background: 'none', cursor: 'pointer', fontSize: '1.2rem', color: 'var(--dash-text-secondary)' }}>&times;</button>
                         </div>
-                        <p style={{ fontSize: '0.85rem', color: 'var(--dash-text-secondary)', marginBottom: '0.75rem' }}>
-                            Copy or tap below to open WhatsApp with pre-filled text:
+                        <p style={{ fontSize: '0.8rem', color: 'var(--dash-text-secondary)', marginBottom: '0.6rem' }}>
+                            Copy or tap below to open WhatsApp with formatted text:
                         </p>
                         <textarea
                             readOnly
-                            rows={8}
+                            rows={6}
                             value={getShareText(shareModalProduct)}
-                            style={{ width: '100%', padding: '0.75rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--dash-border)', fontFamily: 'inherit', fontSize: '0.85rem', resize: 'none', marginBottom: '1rem' }}
+                            style={{ width: '100%', padding: '0.6rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--dash-border)', fontFamily: 'inherit', fontSize: '0.8rem', resize: 'none', marginBottom: '0.85rem', background: 'var(--dash-bg)' }}
                         />
                         <div style={{ display: 'flex', gap: '0.5rem' }}>
                             <button
-                                className="auth-submit"
-                                style={{ flex: 1, background: '#25D366' }}
+                                className="btn-outline"
+                                style={{ flex: 1, padding: '0.55rem 0.5rem', fontSize: '0.825rem', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', borderRadius: '8px' }}
                                 onClick={() => handleCopyShareText(getShareText(shareModalProduct))}
                             >
-                                <i className="ph ph-copy" style={{ marginRight: '0.4rem' }}></i> Copy Text
+                                <i className="ph ph-copy" style={{ fontSize: '1rem' }}></i> Copy Text
                             </button>
                             <a
                                 href={`https://api.whatsapp.com/send?text=${encodeURIComponent(getShareText(shareModalProduct))}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="auth-submit"
-                                style={{ flex: 1, background: '#128C7E', textAlign: 'center', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                                style={{ flex: 1, padding: '0.55rem 0.5rem', fontSize: '0.825rem', fontWeight: 600, background: '#25D366', color: '#ffffff', borderRadius: '8px', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', boxShadow: '0 2px 8px rgba(37,211,102,0.25)' }}
                             >
-                                <i className="ph-fill ph-whatsapp-logo" style={{ marginRight: '0.4rem' }}></i> Open WhatsApp
+                                <i className="ph-fill ph-whatsapp-logo" style={{ fontSize: '1rem' }}></i> Open WhatsApp
                             </a>
                         </div>
                     </div>
